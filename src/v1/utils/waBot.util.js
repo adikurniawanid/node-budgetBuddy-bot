@@ -11,6 +11,8 @@ const createSession = async () => {
   });
 
   client.on('qr', (qr) => {
+    // eslint-disable-next-line no-console
+    console.log(qr);
     qrcode.generate(qr, { small: true });
   });
 
