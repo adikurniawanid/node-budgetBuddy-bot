@@ -15,7 +15,6 @@ const writeToSpreadSheet = async () => {
   const { data, error } = await supabase
     .from('transaction')
     .select('id, amount, typeId, detail, date')
-    .eq('userId', '6282182751010@c.us')
     .order('date', {
       ascending: true,
     });
