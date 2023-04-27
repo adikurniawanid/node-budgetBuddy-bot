@@ -9,7 +9,8 @@ const createSession = async () => {
   mongoose.connect(process.env.MONGODB_URI).then(() => {
     const store = new MongoStore({ mongoose });
     const client = new Client({
-    // eslint-disable-next-line no-undef
+      puppeteer: { executablePath: '/usr/bin/chromium', headless: true, args: ['--no-sandbox', '--disable-setuid-sandbox'] },
+      // eslint-disable-next-line no-undef
       authStrategy: new RemoteAuth({
         store,
         backupSyncIntervalMs: 300000,
